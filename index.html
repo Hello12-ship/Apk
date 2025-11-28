@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akash APK Store</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f2f4f7;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+        color: #222;
+    }
+
+    #apkList {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 18px;
+        border-radius: 14px;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.06);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .name {
+        font-size: 17px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    button {
+        padding: 10px 14px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button:hover {
+        background: #005fcc;
+    }
+</style>
+</head>
+<body>
+
+<h1> APK Store</h1>
+
+<div id="apkList">
+    <!-- APK cards will load here automatically -->
+</div>
+
+
+<script>
+// GitHub Pages: get list of APKs by checking directory using simple JSON file fallback
+
+// 👉 STEP 1: List APK file names manually inside this array when you upload new APKs
+// (very simple for GitHub Pages)
+const apkFiles = [
+    "music.apk",
+    "video.apk",
+    "game.apk"
+];
+
+const listDiv = document.getElementById("apkList");
+
+apkFiles.forEach(apk => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <div class="name">${apk}</div>
+        <a href="${apk}" download>
+            <button>Download</button>
+        </a>
+    `;
+
+    listDiv.appendChild(card);
+});
+</script>
+
+</body>
+</html>
